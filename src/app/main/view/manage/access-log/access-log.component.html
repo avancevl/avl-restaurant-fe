@@ -1,0 +1,58 @@
+<app-shrink [isOpen]="true">
+  <app-quick-date-picker [startTime]="startTime" [endTime]="endTime"></app-quick-date-picker>
+  <div class="cui-row">
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3" appDatePicker>
+      <input type="text" [(ngModel)]="searchForm.startTime" #startTime>
+      <label>開始時間</label>
+    </div>
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3" appDatePicker>
+      <input type="text" [(ngModel)]="searchForm.endTime" #endTime>
+      <label>結束時間</label>
+    </div>
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3">
+      <input type="text" [(ngModel)]="searchForm.service">
+      <label>服務名稱</label>
+      <div class="message">模糊查詢:%word%</div>
+    </div>
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3">
+      <input type="text" [(ngModel)]="searchForm.url">
+      <label>網址</label>
+      <div class="message">模糊查詢:%word%</div>
+    </div>
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3">
+      <input type="text" [(ngModel)]="searchForm.ip">
+      <label>IP</label>
+      <div class="message">模糊查詢:%word%</div>
+    </div>
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3">
+      <input type="text" [(ngModel)]="searchForm.location">
+      <label>位置</label>
+      <div class="message">模糊查詢:%word%</div>
+    </div>
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3">
+      <input type="text" [(ngModel)]="searchForm.user">
+      <label>使用者</label>
+      <div class="message">模糊查詢:%word%</div>
+    </div>
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3">
+      <input type="text" [(ngModel)]="searchForm.status">
+      <label>狀態</label>
+    </div>
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3">
+      <select [(ngModel)]="searchForm.method" notTranslate>
+        <option value="">請選擇</option>
+        <option value="get">GET</option>
+        <option value="post">POST</option>
+        <option value="put">PUT</option>
+        <option value="delete">DELETE</option>
+      </select>
+      <label>Method</label>
+    </div>
+  </div>
+  <div class="cui-button-row center">
+    <button class="cui-button {{ApiClassName.GetAccessLogPage}}" (click)="search()">查詢</button>
+    <button class="cui-button bg-accent" (click)="clean()">清除</button>
+    <button class="cui-button {{ApiClassName.DeleteAccessLog}}" (click)="remove()">刪除</button>
+  </div>
+</app-shrink>
+<div class="view-content" [appInitElement]="grid.getElement()"></div>

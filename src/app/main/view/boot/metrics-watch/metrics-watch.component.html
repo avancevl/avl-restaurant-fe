@@ -1,0 +1,33 @@
+<app-shrink>
+  <div class="cui-field cui-col-xs32-12 cui-col-xs48-8">
+    <input type="text" id="url" [(ngModel)]="url">
+    <label>操作系統</label>
+  </div>
+  <div class="cui-field cui-col-xs32-12 cui-col-xs48-4">
+    <input type="text" id="interval" [(ngModel)]="interval">
+    <label>間隔</label>
+  </div>
+  <div class="cui-button-row center">
+    <button class="cui-button" (click)="start()" [disabled]="running">開始</button>
+    <button class="cui-button bg-accent" (click)="stop()" [disabled]="!running">停止</button>
+    <button class="cui-button bg-accent" (click)="clean()">清除</button>
+  </div>
+  <div class="cui-button-row right">
+    <button class="cui-button" (click)="changeColumn(1)">單欄</button>
+    <button class="cui-button" (click)="changeColumn(2)">雙欄</button>
+    <button class="cui-button" (click)="changeColumn(3)">三欄</button>
+  </div>
+</app-shrink>
+<div>
+  <ng-container *ngFor="let metrics of metricss">
+    <div class="block" [style.width]="metrics.width">
+      <div class="chart">
+        <div class="title flaticon-down {{metrics.className}}" (click)="showChart(chart,metrics)">
+          {{metrics.name}}
+        </div>
+        <div class="content" #chart>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

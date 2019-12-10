@@ -1,0 +1,31 @@
+<app-shrink>
+  <div class="cui-row" notTranslate>
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3">
+      <input type="text" [(ngModel)]="searchForm.path">
+      <label>路徑</label>
+      <div class="message">模糊查詢:%word%</div>
+    </div>
+  </div>
+  <div class="cui-row" notTranslate>
+    <h3 *ngIf="noInsertApis.get.length>0">尚未新增 GET</h3>
+    <button *ngFor="let api of noInsertApis.get" class="cui-button bg-dark inherit"
+      (click)="addById('get',api)">{{api}}</button>
+    <h3 *ngIf="noInsertApis.post.length>0">尚未新增 POST</h3>
+    <button *ngFor="let api of noInsertApis.post" class="cui-button bg-dark inherit"
+      (click)="addById('post',api)">{{api}}</button>
+    <h3 *ngIf="noInsertApis.put.length>0">尚未新增 PUT</h3>
+    <button *ngFor="let api of noInsertApis.put" class="cui-button bg-dark inherit"
+      (click)="addById('put',api)">{{api}}</button>
+    <h3 *ngIf="noInsertApis.delete.length>0">尚未新增 DELETE</h3>
+    <button *ngFor="let api of noInsertApis.delete" class="cui-button bg-dark inherit"
+      (click)="addById('delete',api)">{{api}}</button>
+  </div>
+  <div class="cui-button-row center">
+    <button class="cui-button" (click)="search()">查詢</button>
+    <button class="cui-button {{ApiClassName.PostApi}}" (click)="add()">新增</button>
+  </div>
+</app-shrink>
+<div class="view-content" [appInitElement]="grid.getElement()">
+</div>
+
+<app-api-dialog [onComplete]="onComplete"></app-api-dialog>

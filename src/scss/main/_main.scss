@@ -1,0 +1,54 @@
+.main-container {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  @include transitions(padding-left .3s ease-in-out);
+}
+
+.main-view {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+
+
+  .shrink {
+    background-color: #fff;
+    @include box-shadow(0 1px 2px #aaa);
+  }
+
+  .view-content {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: .8em;
+    word-break: break-word;
+  }
+
+}
+
+.cui-grid {
+  @include box-shadow(0 1px 2px #aaa);
+}
+
+.cui-grid-content {
+  table {
+    width: 100% !important;
+  }
+}
+
+
+@media screen and(min-width:996px) {
+  router-outlet~* {
+    @include animation(main-loading .3s ease-in-out);
+  }
+}
+
+@include keyframes(main-loading) {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,15 @@
+<app-shrink>
+  <div class="cui-row">
+    <h3>尚未新增</h3>
+    <ng-container *ngFor="let route of noAddRoutes">
+      <button class="cui-button bg-dark inherit" (click)="addByPath(route)">{{route}} </button>
+    </ng-container>
+  </div>
+  <div class="cui-button-row center">
+    <button class="cui-button" (click)="search()">查詢</button>
+    <button class="cui-button {{ApiClassName.PostRoute}}" (click)="add()">新增</button>
+  </div>
+</app-shrink>
+<div class="view-content" [appInitElement]="grid.getElement()">
+</div>
+<app-route-dialog [onComplete]="onComplete"></app-route-dialog>

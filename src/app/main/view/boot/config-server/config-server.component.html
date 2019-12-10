@@ -1,0 +1,32 @@
+<app-shrink>
+  <div class="cui-field cui-col-xs32-8">
+    <input type="text" id="url" [(ngModel)]="form.url">
+    <label>URL</label>
+  </div>
+  <div class="cui-field cui-col-xs32-4">
+    <select [(ngModel)]="form.method">
+      <option value="GET">GET</option>
+      <option value="POST">POST</option>
+    </select>
+    <label>Method</label>
+  </div>
+  <div class="cui-field cui-col-xs32-6">
+    <textarea rows="5" [(ngModel)]="form.headers"></textarea>
+    <label>Headers</label>
+    <div class="message">key:value//換行</div>
+  </div>
+  <div class="cui-field cui-col-xs32-6">
+    <textarea rows="5" [(ngModel)]="form.params"></textarea>
+    <label>Paramters</label>
+    <div class="message">key:value//換行</div>
+  </div>
+  <div class="cui-field cui-col-xs32-12">
+    <textarea rows="5" [(ngModel)]="form.body"></textarea>
+    <label>Body</label>
+  </div>
+  <div class="cui-button-row">
+    <button class="cui-button" (click)="submit()">提交</button>
+    <button class="cui-button bg-accent" (click)="clean()">清除</button>
+  </div>
+</app-shrink>
+<div class="view-content" [innerHTML]="result | safeHtml"></div>

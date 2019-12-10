@@ -1,0 +1,22 @@
+<div
+  class="cui-col-xs32-12 cui-col-md-10 cui-col-md-offset-1 cui-col-lg-10 cui-col-lg-offset-1 cui-col-slg-8 cui-col-slg-offset-2">
+  <div class="space-2"></div>
+  <div class="space-2"></div>
+  <h2>使用者資訊</h2>
+  <div class="cui-field cui-col-xs32-6">
+    <input type="text" [value]="Global.authUser.id" readonly>
+    <label>帳號</label>
+  </div>
+  <div class="cui-field cui-col-xs32-6">
+    <input type="text" [value]="Global.authUser.name" readonly>
+    <label>名稱</label>
+  </div>
+  <div class="cui-button-row center">
+    <button class="cui-button bg-accent" (click)="modifySelf()">修改</button>
+    <button class="cui-button bg-accent" (click)="modifySelfPassword()">修改密碼</button>
+    <button class="cui-button bg-accent" (click)="resetPassword()">重設密碼</button>
+  </div>
+</div>
+
+<app-self-dialog></app-self-dialog>
+<app-self-modify-password-dialog></app-self-modify-password-dialog>

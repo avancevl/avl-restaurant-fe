@@ -1,0 +1,15 @@
+<app-shrink>
+  <div class="cui-field">
+    <input type="text" id="url" [(ngModel)]="url">
+    <label>操作系統</label>
+  </div>
+  <div class="cui-button-row">
+    <button class="cui-button" (click)="build()">產生</button>
+    <button class="cui-button bg-accent" (click)="clean()">清除</button>
+    <button class="cui-button" (click)="download()">下載</button>
+    <button class="cui-button" (click)="copy()">複製</button>
+  </div>
+</app-shrink>
+<div class="cui-field">
+  <textarea rows="30" [value]="result"></textarea>
+</div>

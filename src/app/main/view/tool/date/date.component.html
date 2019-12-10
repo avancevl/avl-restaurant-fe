@@ -1,0 +1,16 @@
+<div class="view-content">
+  <div class="cui-field cui-col-xs32-12">
+    <input type="text" [(ngModel)]="format" (input)="input()">
+    <label>時間格式</label>
+  </div>
+  <div class="cui-field cui-col-xs32-6">
+    <input type="text" [(ngModel)]="time" (input)="input()">
+    <label>time</label>
+    <div class="message">{{timeResult}}</div>
+  </div>
+  <div class="cui-field cui-col-xs32-6">
+    <input type="text" [(ngModel)]="date" (input)="input()">
+    <label>字串</label>
+    <div class="message">{{dateResult}}</div>
+  </div>
+</div>

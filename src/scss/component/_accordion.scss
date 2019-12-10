@@ -1,0 +1,69 @@
+@import "base/function";
+@import "base/themes";
+
+.accordion-list {
+  padding-left: 1.2em;
+
+  ul,
+  li {
+    list-style: none;
+    padding: 0;
+  }
+
+  .item {
+    &.active {
+      .child {
+        height: auto;
+        opacity: 1;
+      }
+    }
+
+    .text {
+      position: relative; // width: 100%;
+      display: block;
+      line-height: 2em;
+      color: #fff;
+      cursor: pointer;
+      @include transition(color .3s ease-in-out);
+
+      &:hover {
+        // color: $primary-color1;
+
+        a {
+          // color: $primary-color1;
+        }
+
+        &:after {
+          opacity: .5;
+          width: 100%;
+        }
+      }
+
+      &:before {
+        padding-right: 5px;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        display: block;
+        width: 0%;
+        height: 100%;
+        background: #eee;
+        opacity: 0;
+        pointer-events: none;
+        @include transitions(width .3s ease-in-out, opacity .3s ease-in-out);
+      }
+    }
+
+    .child {
+      height: 0px;
+      opacity: 0;
+      overflow: hidden;
+      @include transition(all .3s ease-in-out);
+    }
+  }
+}

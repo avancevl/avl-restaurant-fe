@@ -1,0 +1,7 @@
+<div class="main-container" [style.paddingLeft]="paddingLeft" #container>
+  <app-header *ngIf="authUser"></app-header>
+  <div class="main-view">
+    <router-outlet></router-outlet>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</div>

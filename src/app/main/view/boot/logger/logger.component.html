@@ -1,0 +1,17 @@
+<app-shrink>
+  <div class="cui-field">
+    <input type="text" id="url" [(ngModel)]="url">
+    <label>操作系統</label>
+  </div>
+  <div class="cui-field">
+    <input type="text" id="package" [(ngModel)]="package">
+    <label>Package</label>
+  </div>
+  <div class="cui-button-row center">
+    <button class="cui-button" (click)="search()">查詢</button>
+  </div>
+  <div class="cui-row">
+    <span *ngFor="let key of cachePackages" class="cui-link-button" (click)="changePackage(key,$event)">{{key}}</span>
+  </div>
+</app-shrink>
+<div class="view-content" [appInitElement]="grid.getElement()"></div>

@@ -1,0 +1,18 @@
+<div class="space-1"></div>
+<div class="cui-field">
+  <input type="text" id="url" [(ngModel)]="url">
+  <label>操作系統</label>
+</div>
+<div class="cui-button-row">
+  <button class="cui-button" (click)="init()">刷新</button>
+</div>
+<div class="cui-button-row" *ngIf="caches" notTranslate>
+  <button *ngFor="let cache of caches" class="cui-button {{cache==activeCache?'bg-dark':''}}"
+    (click)="load(cache)">{{cache.name}}</button>
+</div>
+<div class="cui-button-row">
+  <button class="cui-button bg-accent" (click)="clearAll(false)">清除全部</button>
+  <button class="cui-button bg-accent" (click)="clearAll(true)">清除全部並通知</button>
+</div>
+<div class="view-content" *ngIf="grid" [appInitElement]="grid.getElement()">
+</div>

@@ -1,0 +1,27 @@
+<app-shrink>
+  <div class="cui-field">
+    <input type="text" id="url" [(ngModel)]="url">
+    <label>操作系統</label>
+  </div>
+  <h3>系統資訊</h3>
+  <div class="cui-button-row">
+    <button class="cui-button" (click)="action('info')">info</button>
+    <button class="cui-button" (click)="action('health')">health</button>
+    <button class="cui-button" (click)="action('env')">env</button>
+    <button class="cui-button" (click)="action('metrics')">metrics</button>
+    <button class="cui-button" (click)="action('mappings')">mappings</button>
+    <button class="cui-button" (click)="action('beans')">beans</button>
+    <button class="cui-button" (click)="action('configprops')">configprops</button>
+    <button class="cui-button" (click)="action('autoconfig')">autoconfig</button>
+    <button class="cui-button" (click)="action('auditevents')">auditevents</button>
+  </div>
+  <h3>系統操作</h3>
+  <div class="cui-button-row">
+    <button class="cui-button" (click)="action('refresh')">refresh</button>
+    <button class="cui-button bg-dark" (click)="action('restart')">restart</button>
+    <button class="cui-button bg-dark" (click)="action('pause')">pause</button>
+    <button class="cui-button bg-dark" (click)="action('resume')">resume</button>
+    <button class="cui-button bg-accent" (click)="action('shutdown')">shutdown</button>
+  </div>
+</app-shrink>
+<div class="view-content" [innerHTML]="result | safeHtml" notTranslate></div>

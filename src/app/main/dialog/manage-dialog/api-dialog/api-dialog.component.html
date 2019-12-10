@@ -1,0 +1,35 @@
+<app-dialog [onClose]="cancel" [title]="title"
+  [windowClassName]="'cui-col-xs32-10 cui-col-xs48-8 cui-col-xs64-6 cui-col-sm-4 cui-col-slg-2'">
+  <div class="cui-field" *ngIf="state==BasicState.Update">
+    <input type="text" [(ngModel)]="form.id" readOnly required>
+    <label>ID</label>
+  </div>
+  <div class="cui-field">
+    <input type="text" [(ngModel)]="form.path" required>
+    <label>路徑</label>
+  </div>
+  <div class="cui-field">
+    <select [(ngModel)]="form.method" required notTranslate>
+      <option value="get">GET</option>
+      <option value="post">POST</option>
+      <option value="put">PUT</option>
+      <option value="delete">DELETE</option>
+    </select>
+    <label>方法</label>
+  </div>
+  <div class="cui-field">
+    <textarea type="text" [(ngModel)]="form.remark" rows="3"></textarea>
+    <label>備註</label>
+  </div>
+  <div class="cui-field">
+    <label>
+      <input type="checkbox" [(ngModel)]="form.enabled">啟用
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="form.required">預設
+    </label>
+  </div>
+  <div class="cui-button-row right">
+    <button class="cui-button" (click)="save()">提交</button>
+  </div>
+</app-dialog>

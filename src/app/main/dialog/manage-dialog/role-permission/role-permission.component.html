@@ -1,0 +1,9 @@
+<app-dialog [windowClassName]="'cui-col-xs32-10 '" [onClose]="cancel" [title]="title" [top]="'20px'">
+  <div class="view-content">
+    <app-role-permission-list *ngIf="routes" [array]="routes" [childs]="childs"></app-role-permission-list>
+  </div>
+  <div class="cui-button-row right" dialog-toolbar>
+    <button class="cui-button" (click)="save()">提交</button>
+    <button class="cui-button bg-accent" (click)="close()">取消</button>
+  </div>
+</app-dialog>

@@ -1,0 +1,24 @@
+<div class="login">
+  <div #loginWindow class="login-window">
+    <div class="header">AVL 餐廳管理系統</div>
+
+    <div class="panel">
+      <div class="errorMessage">
+        {{errorMessage}}
+      </div>
+      <div class="cui-field">
+        <input type="text" [(ngModel)]="form.account" required>
+        <label>帳號</label>
+      </div>
+      <div class="cui-field">
+        <input type="password" [(ngModel)]="form.password" required>
+        <label>密碼</label>
+      </div>
+      <div class="cui-button-row right">
+        <button class="cui-button bg-primary" (click)="login()"
+          [attr.translateKey]="TranslateSourceAll.SignIn.key"></button>
+      </div>
+    </div>
+
+  </div>
+</div>

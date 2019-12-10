@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "baseUrl": "src/",
+    "paths": {
+      "@cui/core": [
+        "ts/lib/cui/core"
+      ],
+      "@environment": [
+        "environments/environment"
+      ]
+    },
+    "plugins": [{
+        "name": "@angular/language-service"
+      },
+      {
+        "name": "tslint-language-service"
+      }
+    ]
+  }
+}

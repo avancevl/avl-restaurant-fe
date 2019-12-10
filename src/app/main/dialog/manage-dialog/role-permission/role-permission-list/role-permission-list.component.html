@@ -1,0 +1,37 @@
+<div class="list">
+  <ul>
+    <li>
+      <label [className]="allChecked?'checked':''">
+        <input type="checkbox" [(ngModel)]="allChecked" (change)="checkedAllRoute()">全選
+      </label>
+    </li>
+    <li *ngFor="let route of routes" class="item {{route.active?'active':''}}">
+      <ng-container *ngIf="route.type==0">
+        <label class="{{route.checked?'checked':''}}">
+          <input type="checkbox" [(ngModel)]="route.checked">
+          <span [className]="route.className"> {{route.name}}</span>
+        </label>
+        <span class="icon flaticon-down" (click)="open(route,child)"></span>
+        <div class="child" #child>
+          <app-role-permission-list [array]="childs[route.id]" [childs]="childs"></app-role-permission-list>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="route.type==1">
+        <label [className]="route.checked?'checked':''">
+          <input type="checkbox" [(ngModel)]="route.checked">
+          <span [className]="route.className"> {{route.name}}({{route.path}})</span>
+        </label>
+        <fieldset *ngIf="route.apis&&route.apis.length>0">
+          <legend>操作權限</legend>
+          <label [className]="route.apiAllChecked?'checked':''">
+            <input type="checkbox" [(ngModel)]="route.apiAllChecked" (change)="checkedAllApi(route)">全選
+          </label>
+          <br>
+          <label *ngFor="let api of route.apis" [className]="api.checked?'checked':''">
+            <input type="checkbox" [(ngModel)]="api.checked">{{api.remark}}
+          </label>
+        </fieldset>
+      </ng-container>
+    </li>
+  </ul>
+</div>

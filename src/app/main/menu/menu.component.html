@@ -1,0 +1,12 @@
+<div #menuScreen class="main-menu-screen">
+</div>
+<div #menu class="main-menu">
+  <div class="main-menu-content">
+    <div class="cui-col-xs32-12 info" *ngIf="user">{{user.name}}</div>
+    <div class="space-1"></div>
+    <app-accordion [array]="roots" [childs]="childs"></app-accordion>
+    <div class="cui-button-row center">
+      <button class="cui-button bg-accent" (click)='logout()'>登出</button>
+    </div>
+  </div>
+</div>

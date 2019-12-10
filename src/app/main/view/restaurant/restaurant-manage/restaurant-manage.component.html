@@ -1,0 +1,16 @@
+<app-shrink [isOpen]="true">
+  <div class="cui-row">
+    <div class="cui-field cui-col-xs32-6 cui-col-xs64-4 cui-col-md-3">
+      <input type="text" [(ngModel)]="searchForm.name">
+      <label>名稱</label>
+      <div class="message">模糊查詢:%word%</div>
+    </div>
+  </div>
+  <div class="cui-button-row center">
+    <button class="cui-button" (click)="search()">查詢</button>
+    <button class="cui-button bg-accent" (click)="clean()">清除</button>
+    <button class="cui-button {{ApiClassName.PostUser}}" (click)="add()">新增</button>
+  </div>
+</app-shrink>
+<div class="view-content" [appInitElement]="grid.getElement()"></div>
+<!-- <app-user-dialog [onComplete]="onComplete"></app-user-dialog> -->

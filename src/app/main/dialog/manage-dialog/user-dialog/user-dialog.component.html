@@ -1,0 +1,42 @@
+<app-dialog [onClose]="cancel" [title]="title"
+  [windowClassName]="'cui-col-xs32-10 cui-col-xs64-8 cui-col-md-6 cui-col-slg-4'" #dialog>
+  <ng-container *ngIf="dialog.isOpen()">
+    <div class="cui-field">
+      <input type="text" [(ngModel)]="form.account" [readOnly]="state==BasicState.Update" required>
+      <label>帳號</label>
+    </div>
+    <div class="cui-field" *ngIf="state==BasicState.Insert">
+      <input type="text" [(ngModel)]="form.password" required>
+      <label>密碼</label>
+      <div class="message">密碼長度不可低於8碼</div>
+    </div>
+    <div class="cui-field">
+      <input type="text" [(ngModel)]="form.name" required>
+      <label>名稱</label>
+    </div>
+    <div class="cui-field">
+      <select [(ngModel)]="form.roleId" required *ngIf="Global.authUser.id!=form.id">
+        <option value="">請選擇</option>
+        <ng-container *ngFor="let role of roleComboboxData.array">
+          <option *ngIf="Global.authUser.level==1||Global.authUser.level<role.level" [value]="role.value">
+            {{role.name}}
+          </option>
+        </ng-container>
+      </select>
+      <input type="text" [value]="roleComboboxData.map[form.roleId]" readonly *ngIf="Global.authUser.id==form.id">
+      <label>角色</label>
+    </div>
+    <div class="cui-field">
+      <input type="text" [(ngModel)]="form.email">
+      <label>信箱</label>
+    </div>
+    <div class="cui-field">
+      <label>
+        <input type="checkbox" [(ngModel)]="form.enabled">啟用
+      </label>
+    </div>
+    <div class="cui-button-row right">
+      <button class="cui-button" (click)="save()">提交</button>
+    </div>
+  </ng-container>
+</app-dialog>
