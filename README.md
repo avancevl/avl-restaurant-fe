@@ -1,5 +1,7 @@
 # avl-restaurant-fe
 
+帳號: avl-admin
+密碼: jf;ldsaifwkdfjaisfdjefhsidfk
 
 
 ## 目的
